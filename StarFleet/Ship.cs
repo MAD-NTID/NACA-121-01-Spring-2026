@@ -55,27 +55,27 @@ public class Ship
 
             // We can break out of the loop early if both are true - not required on exam
             // But assume you have a list of 1,000,000 - would you wanna loop all?
-            // if(haveCaptain && haveChiefOfficer)
-            //     break;
+            if(haveCaptain && haveChiefOfficer)
+                break;
         }
 
         // if object alien has role of captain and there is no captain in the list, then add
-        if(alien.Role.ToLower() == "captain" && !haveCaptain)
+        if(alien.Role.ToLower() == "captain" && haveCaptain || alien.Role.ToLower() == "chief officer" && haveChiefOfficer)
         {
-            // crew (captain) is added, increment totalCrew by one
-            aliens[totalCrew ++] = alien;
-
-            return true;
+            return false;
         }
 
-        if(alien.Role.ToLower() == "chief officer" && !haveChiefOfficer)
-        {
-            aliens[totalCrew ++] = alien;
+        // Add the new crew member to any available slot in the Aliens list(do not use totalCrew as index)
+        // crew (captain/chief officer/other) is added, increment totalCrew by one
+        for(int i = 0; i < aliens.Length; i++)
+            if(aliens[i] == null)
+            {
+                aliens[i] = alien;
+                totalCrew ++;
+                break;
+            }
 
-            return true;
-        }
-
-        return false;        
+        return true;        
     }
 
     // Create a public method called Remove that takes a name and remove the alien as crew from the ship. If the alien was removed, return true. False otherwise.
@@ -83,7 +83,7 @@ public class Ship
     {
         for(int i = 0; i < aliens.Length; i++)
         {
-            if(aliens[i].Name.ToLower() == name)
+            if(aliens[i] != null && aliens[i].Name.ToLower() == name)
             {
                 aliens[i] = null;
                 

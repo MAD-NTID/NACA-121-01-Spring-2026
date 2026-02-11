@@ -38,6 +38,7 @@ while(true)
     {
         string name, role;
         Alien alien;
+        bool added = false;
 
         // Prompt and validate crew member's name
         // Use a loop to re-prompt
@@ -52,11 +53,13 @@ while(true)
             // Overwrite the old alien object placeholder with new values
             alien = new(name, role);
 
-            if(!ship.Add(alien))
+            added = ship.Add(alien);
+
+            if(!added)
             {
                 Console.WriteLine("Only 1 Captain or 1 Chief Officer Allowed");
             }
-        } while(!ship.Add(alien));
+        } while(!added);
 
         Console.WriteLine($"{alien} was added successfully!");
     }
