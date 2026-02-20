@@ -8,7 +8,7 @@ public class Tests
     }
 
     [Test]
-    public void Test1()
+    public void TestAdd()
     {
         int num1 = 2;
         int num2 = 3;
@@ -75,7 +75,7 @@ public class Tests
         {
             calculate.divide(num1, num2);   
         }
-        catch(DivideByZeroException dbze)
+        catch(DivideByZeroException)
         {
             Assert.Pass();   
         }
