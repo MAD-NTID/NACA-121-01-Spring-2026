@@ -3,6 +3,7 @@ public class Reptile : IReptile
 {
     public string Name { get; private set; }
 
+    // The max health of the reptile
     public int Health { get; private set; }
 
     public int CurrentHealth { get; private set; }
@@ -13,6 +14,7 @@ public class Reptile : IReptile
     {
         Name = name;
         Health = health;
+        CurrentHealth = health;
         Damage = damage;
     }
 
@@ -38,7 +40,11 @@ public class Reptile : IReptile
 
     public override string ToString()
     {
-        return $"Type: {base.ToString()}\nName: {Name}\nHealth: {Health}\nDamage: {Damage}";
+        return  $"Type: {base.ToString()}\n" + 
+                $"Name: {Name}\n" +
+                $"Health: {Health}\n" +
+                $"Current Health: {CurrentHealth}\n" + 
+                $"Damage: {Damage}";
     }
 
     // Add the keyword 'virtual' before the type
@@ -62,5 +68,10 @@ public class Reptile : IReptile
     {
         // Hey, are you (obj) my kid!?
         return obj is Reptile;
+    }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
     }
 }

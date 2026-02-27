@@ -31,4 +31,9 @@ public class Dragon : Reptile
                     dragon.Health == Health && 
                     dragon.Damage == Damage;
     }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
 }

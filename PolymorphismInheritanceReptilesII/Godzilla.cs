@@ -21,4 +21,9 @@ public class Godzilla : Reptile
         // this compares itself to the obj
         return obj is Godzilla;
     }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
 }
