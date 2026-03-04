@@ -1,5 +1,5 @@
 // <T> is a place holder to pass a type
-public class Printer<T>
+public class Printer<T> : IPrinter<T>
 {
     private T[] jobs;
 
