@@ -1,4 +1,3 @@
-using System.Globalization;
 using System.Text;
 
 public class TicTacToeBoard
@@ -19,17 +18,19 @@ public class TicTacToeBoard
     {
         // Creates the board 3x3
         board = new char[ROWS, COLS];
+        GameOver = false;
     }
 
-    public void AddPiece(char piece, int x, int y)
+    public void AddPiece(char piece, int row, int col)
     {
         // No validation - for now, just put the piece in there
-        board[x, y] = piece;
+        board[row, col] = piece;
 
         // TODO - Check for winner
         CheckWinner();
 
         // TODO - Check if Game Over
+        IsGameOver();
     }
 
     public void CheckWinner()
@@ -122,6 +123,28 @@ public class TicTacToeBoard
             Winner = true;
             return;
         }
+    }
+
+    // Edge Case - 
+    // How do we know that the game is over if there's no winner?
+    public void IsGameOver()
+    {
+        int rowsFilled = 0;
+        for(int r = 0; r < ROWS; r++)
+        {
+            for(int c = 0; c < COLS; c++)
+            {
+                if(board[r, c] != '\0')
+                {
+                    rowsFilled++;
+                }
+            }
+        }
+
+        // This Checks if rowsFilled equals to the 2D array length 3x3
+        // In other words, if rowsFilled is 9 and that equals to 3x3, then
+        // all rows are fille and game is over
+        GameOver = rowsFilled == (ROWS * COLS);
     }
 
     public override string ToString()
