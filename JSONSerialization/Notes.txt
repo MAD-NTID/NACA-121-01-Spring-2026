@@ -1,0 +1,15 @@
+- dotnet uses a package manager Nuget
+- a package is code provided by someone else that you can use in your project
+- by invoking the command 
+    dotnet add package SomePackageName
+
+    you are telling your project that it needs a package
+
+- when you install a package for the first time in your project, a reference to that package is added in the .csproj file
+
+- when you push a project to your git repository, the package itself is NOT PUSHED, but only the reference to the package
+
+- when you clone your repository to a computer that does not have the package installed, you need to invoke the command
+    dotnet restore
+
+    this command will look in your .csproj and download any packages that your project is needing
