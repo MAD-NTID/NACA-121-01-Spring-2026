@@ -1,0 +1,50 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="TicTacToeGUI.MainWindow"
+        Title="Tic Tac Toe"
+        WindowState="Maximized">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Player name text fields -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <TextBox x:Name="Player1" Width="300" Margin="5"  Watermark="Player 1 name"/>
+            <TextBox x:Name="Player2" Width="300" Margin="5" Watermark="Player 2 name" />
+            <TextBox x:Name="TurnBlock" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Margin="5" Text="Player 1's Turn" IsVisible="False"/>
+            <Button x:Name="StartButton" Content="Start" Margin="5" Click="Start"/>
+            <Button x:Name="RestartButton" Content="Restart" Margin="5" Click="Restart" IsVisible="False"/>
+        </StackPanel>
+
+        <!-- Tic Tac Toe game grid -->
+        <Grid Grid.Row="1" Margin="10" x:Name="TicTacToeGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Define cells for Tic Tac Toe game -->
+            <Button Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Foreground="White" Click="MakeMove" />
+            <Button Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Foreground="White" Click="MakeMove" />
+            <Button Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Foreground="White" Click="MakeMove" />
+
+            <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Foreground="White" Click="MakeMove" />
+            <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Foreground="White" Click="MakeMove" />
+            <Button Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Foreground="White" Click="MakeMove" />
+
+            <Button Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Foreground="White" Click="MakeMove" />
+            <Button Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Foreground="White" Click="MakeMove" />
+            <Button Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Foreground="White" Click="MakeMove" />
+        </Grid>
+    </Grid>
+</Window>
