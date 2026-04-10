@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Dynamic;
 
 // Use this array to do various time complexity
 string[] students = new string[5];
@@ -52,10 +53,22 @@ Stopwatch peterInONSquareStopWatch = new Stopwatch();
 
 peterInONSquareStopWatch.Start();
 
+int MainIndexSwitcher(int index)
+{
+   int classroomIndex = 0; 
+
+   if(index >= classrooms.GetLength(1))
+    {
+        return classroomIndex + 1; 
+    }
+
+    return 0; 
+}
+
 for(int classroom = 0; classroom < classrooms.GetLength(0); classroom++)
-    for(int student = 0; student < classrooms.GetLength(1); student++)
-        if(classrooms[classroom, student] == "Peter")
-            break;
+    if(classrooms[MainIndexSwitcher(classrooms.GetLength(0) - classroom), classrooms.GetLength(0) - classroom] == "Peter") //1 loop instead of 2 loops
+        break;
+       
 
 peterInONSquareStopWatch.Stop();
 Console.WriteLine("O(n^2): We Look for Peter in Different Classrooms");
