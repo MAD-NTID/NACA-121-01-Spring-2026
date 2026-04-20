@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>true</IsPackable>
+
+    <PackageId>MathStuff.0.0.1.Test</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>Michael Berrios</Authors>
+    <Company>RIT</Company>
+    <Description>Simple Math Utility</Description>
+  </PropertyGroup>
+
+</Project>
